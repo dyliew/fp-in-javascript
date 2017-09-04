@@ -1,9 +1,9 @@
 import Functor from './../Functor';
 
 export default class Applicative {
-    private _func: (number) => number;
+    private _func;
 
-    constructor(func: (number) => number) {
+    constructor(func) {
         this._func = func;
     }
 
@@ -11,6 +11,11 @@ export default class Applicative {
         if (!this._func)
             return functor;
 
-        return functor.map(this._func);
+        if (this._func.length === 1) {
+            const result = functor.map(this._func);
+            return result;
+        }
+
+        return functor.curriableMap(this._func);
     }
 }
