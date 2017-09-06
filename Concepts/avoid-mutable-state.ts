@@ -1,6 +1,7 @@
 let state = {
     prop1: 'a string',
-    prop2: 98
+    prop2: 98,
+    prop3: 102,
 };
 
 let addA = (a, b) => {
@@ -15,6 +16,7 @@ let resultA = addA(state, 2);
 let addB = (a, b) => {
     return a + b;
 }
-let resultB = addB(state.prop2, 102);
-// 200
-// state.prop2 === 98
+let resultB = addB(state.prop3, 102);
+// 300
+// state.prop3 === 98
+state.prop3 = resultB;

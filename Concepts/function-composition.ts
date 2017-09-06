@@ -1,4 +1,5 @@
 // curry...yumyum
+// closure
 
 let flow = (...funcs) => {
     return (...args) => {
