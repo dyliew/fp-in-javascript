@@ -6,16 +6,16 @@ let functorB = new Functor(222);
 // adding them up
 // let's make functorC = functorA + functorB;
 let functorC1 = functorA.map((valA: number) => {
-    return functorB.map((valB: number) => valB / valA).getValue();
+    return functorB.map((valB: number) => valB / valA).value;
 });
 
-console.log(`functorC1: ${functorC1.getValue()}`)
+console.log(`functorC1: ${functorC1.value}`)
 
-let applicativeA = functorA.curriableMap2((a, b) => b / a);
+let applicativeA = functorA.curriableMap((a, b) => b / a);
 let functorC2 = applicativeA.ap(functorB);
 
 if (functorC2 instanceof Functor)
-    console.log(`functorC2: ${functorC2.getValue()}`);
+    console.log(`functorC2: ${functorC2.value}`);
 
 // an multiple function that takes 4 parameters
 const functorW = new Functor(3);

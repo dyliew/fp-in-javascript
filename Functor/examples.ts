@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import Functor from './';
 
 const arr = [2, 3, 6, 7, 8];
 
@@ -28,8 +29,6 @@ const newArr = arr.reduce((base: boolean[], value: number) => {
     return base;
 }, []);
 
-console.log(_.map);
-
 console.log(`arr: ${arr}`);
 console.log(`newArr: ${updatedArr}`);
 console.log(`evenNumbersArr: ${evenNumbersArr}`);
@@ -37,3 +36,11 @@ console.log(`shortenedArr: ${shortenedArr}`);
 console.log(`newArr: ${newArr}`);
 
 // what about Array.prototype.splice?
+
+let myFunctor = new Functor(67);
+let myNewFunctor = myFunctor
+    .map(multiply2)
+    .map(multiply3)
+    .map(divide5);
+
+console.log(`myNewFunctor: ${myNewFunctor.value}`);

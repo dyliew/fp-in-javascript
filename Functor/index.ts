@@ -4,13 +4,21 @@ import Applicative from './../Applicative';
 export default class Functor {
     protected _value: number | 'nothing';
 
-    constructor(value: number | 'nothing') {
+    constructor(value: number | 'nothing' = null) {
+        this._value = value || 'nothing';
+    }
+
+    get isEmpty() {
+        return !!this._value;
+    }
+
+    set value(value) {
         this._value = value;
     }
 
-    hasValue = () => !!this._value;
-    setValue = (value: number) => this._value = value;
-    getValue = () => this._value || 'nothing';
+    get value() {
+        return this._value;
+    }
 
     map(func: (number) => number | 'nothing') {
         if (!this._value || !func)
@@ -35,15 +43,6 @@ export default class Functor {
 
         // we now know that 'func' has more than 1 parameters
         const curriedFunc = func.bind(null, this._value);
-        return new Applicative(curriedFunc);
-    }
-
-    curriableMap2(func) {
-        if (!func || !func.length || func.length !== 2)
-            throw new Error('function must have 2 parameters');
-
-        let curriedFunc: (number) => number = func.bind(null, this._value);
-
         return new Applicative(curriedFunc);
     }
 }

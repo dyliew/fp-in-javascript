@@ -10,6 +10,6 @@ const monad3 = monad1.flatMap(val => {
     return new Monad(newVal);
 });
 
-console.log(`monad1: ${monad1.getValue()}`);
-console.log(`monad2: ${monad2.getValue()}`);
-console.log(`monad3: ${monad3.getValue()}`);
+console.log(`monad1: ${monad1.value}`);
+console.log(`monad2: ${monad2.value}`);
+console.log(`monad3: ${monad3.value}`);
