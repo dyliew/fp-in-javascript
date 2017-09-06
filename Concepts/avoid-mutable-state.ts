@@ -20,3 +20,6 @@ let resultB = addB(state.prop3, 102);
 // 300
 // state.prop3 === 98
 state.prop3 = resultB;
+
+// or
+state = Object.assign({}, state, { prop3: resultB });
