@@ -5,7 +5,7 @@ let state = {
 };
 
 let addA = (a, b) => {
-    a.prop2 = a.prop2 + b;
+    a.prop2 = a.prop2 + b; // modifying 'prop2'
     return a.prop2;
 }
 

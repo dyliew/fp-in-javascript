@@ -18,8 +18,6 @@ let resultFromSideEffect = myFunctor
         return value;
     });
 
-let result = myFunctor
-    .map(item => divide2(item))
-    .map(item => minus1(item));
+let result = myFunctor.map(item => minus1(divide2(item)));
 
 console.log(result[0]);

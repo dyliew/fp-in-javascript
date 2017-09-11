@@ -1,7 +1,8 @@
 // curry...yumyum
 // closure
+// promotes reusability of functions
 
-let flow = (...funcs) => {
+let compose = (...funcs) => {
     return (...args) => {
         let res = undefined;
 
@@ -22,7 +23,7 @@ let sum = (a, b) => a + b;
 let square = n => n * n;
 let divideHalf = n => n / 2;
 
-let complexFunc = flow(sum, square, divideHalf);
+let complexFunc = compose(sum, square, divideHalf);
 let complexResult = complexFunc(5, 9);
 
 console.log(`complexFunc result is ${complexResult}`)

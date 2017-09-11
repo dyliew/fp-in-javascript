@@ -28,6 +28,7 @@ export default class Functor {
         return new Functor(newValue);
     }
 
+    // takes a function and curry it
     curriableMap(func: any): any {
         if (!this._value || !func)
             return new Functor(null);
